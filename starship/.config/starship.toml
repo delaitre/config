@@ -1,0 +1,73 @@
+
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$jobs\
+$cmd_duration\
+$status\
+"""
+
+[username]
+show_always = true
+style_user = 'fg:#abb2bf'
+style_root = 'fg:#bf616a'
+format = '[ $user]($style)'
+disabled = false
+
+[directory]
+style ='fg:#ffffff'
+repo_root_style = 'bold fg:#ffffff'
+read_only = ' '
+read_only_style = 'fg:#bf616a'
+format = '[  $path]($style)[$read_only]($read_only_style)'
+repo_root_format = '[  $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+truncation_length = 3
+truncation_symbol = '…/'
+truncate_to_repo = false
+
+[git_branch]
+symbol = ''
+style = 'fg:#FCA17D'
+format = '[ $symbol $branch]($style)'
+only_attached = true
+
+[git_status]
+conflicted = '󰦎'
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = '󰄬'
+untracked = '?'
+stashed = ' '
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = 'x'
+typechanged = ''
+style = 'fg:#FCA17D'
+format = '[ $all_status$ahead_behind]($style)'
+
+[git_state]
+style = 'fg:#FCA17D'
+format = '[ $state ($progress_current/$progress_total)]($style)'
+
+[jobs]
+number_threshold = 1
+style = 'fg:#a983a2'
+symbol = ' '
+format = '[$symbol $number]($style)'
+
+[cmd_duration]
+min_time = 2_000
+style = 'fg:#a983a2'
+format = '[ 󱑎 $duration]($style)'
+
+[status]
+symbol = '[ $status](fg:#bf616a)'
+success_symbol = ''
+format = '$symbol '
+disabled = false
+
